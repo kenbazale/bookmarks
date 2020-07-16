@@ -1,0 +1,2 @@
+# bookmarks
+django bookmarks app
