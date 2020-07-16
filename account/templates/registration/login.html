@@ -1,0 +1,27 @@
+{% extends  'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="form-group">
+    <div class="card-body">
+         <h4 class="card-title">Log in to your account</h4>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+        <p>Please, use the following form to log-in. If you don't have an
+            account <a href="{% url 'signup' %}">register here</a></p>
+    </div>
+</div>
+<div class ="social">
+    <ul>
+        <li class = "facebook"><a href= "{% url 'social:begin' 'facebook' %}">sign in with Facebok</a></li>
+    </ul>
+    <ul>
+        <li class = "twitter"><a href= "{% url 'social:begin' 'twitter' %}">sign in with twitter</a></li>
+    </ul>
+</div>
+{% endblock %}
